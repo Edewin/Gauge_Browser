@@ -18,7 +18,7 @@ public:
     ~MainWindow();
 
 protected:
-    QcNeedleItem* createGauge(QcGaugeWidget* qGauge);
+    void createGauge(QcGaugeWidget* qGauge, QcNeedleItem** qNeedle);
 
 private slots:
     void on_dial_valueChanged(int value);
