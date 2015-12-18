@@ -5,6 +5,8 @@
 #include "qcgaugewidget.h"
 #include <QDebug>
 
+#include "qcustomgauge.h"
+
 namespace Ui {
 class MainWindow;
 }

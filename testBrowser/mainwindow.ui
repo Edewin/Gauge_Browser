@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(81, 133, 229);</string>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
@@ -50,12 +53,21 @@
         </item>
         <item>
          <widget class="QLCDNumber" name="lcdNumber">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>50</height>
+           </size>
+          </property>
           <property name="font">
            <font>
             <pointsize>10</pointsize>
             <weight>75</weight>
             <bold>true</bold>
            </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(219, 94, 94);</string>
           </property>
          </widget>
         </item>
@@ -74,7 +86,7 @@
      <x>0</x>
      <y>0</y>
      <width>683</width>
-     <height>21</height>
+     <height>27</height>
     </rect>
    </property>
   </widget>

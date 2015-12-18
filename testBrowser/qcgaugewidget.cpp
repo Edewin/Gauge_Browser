@@ -785,7 +785,7 @@ void QcValuesItem::draw(QPainter*painter)
     QRectF  tmpRect = resetRect();
     float r = getRadius(adjustRect(99));
     QFont font("OldEnglish",10, QFont::Bold);
-    font.setPointSizeF(0.05*r);
+    font.setPointSizeF(0.1*r);
 
     painter->setFont(font);
     painter->setPen(mColor);

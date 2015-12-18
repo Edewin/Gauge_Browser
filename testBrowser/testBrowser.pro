@@ -14,9 +14,11 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    qcgaugewidget.cpp
+    qcgaugewidget.cpp \
+    qcustomgauge.cpp
 
 HEADERS  += mainwindow.h \
-    qcgaugewidget.h
+    qcgaugewidget.h \
+    qcustomgauge.h
 
 FORMS    += mainwindow.ui
