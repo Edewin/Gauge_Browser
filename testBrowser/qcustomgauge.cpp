@@ -157,6 +157,9 @@ void qCustomGauge::createBatteryGauge(QcGaugeWidget *qGauge, QcNeedleItem **qNee
 
     color->setColors(mBandColors);
 
+    QcLabelItem* label = qGauge->addLabel(25);
+    label->setText("Battery Level");
+    label->setColor(Qt::white);
 
     *qNeedle = qGauge->addNeedle(65);
 
