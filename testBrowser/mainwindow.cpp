@@ -117,3 +117,10 @@ void MainWindow::on_toolBox_currentChanged(int index)
 {
     qDebug() << index;
 }
+
+void MainWindow::on_actionAbout_TeamEVO_triggered()
+{
+    AboutTeamEVO infoEVO;
+    infoEVO.setModal(true);
+    infoEVO.exec();
+}

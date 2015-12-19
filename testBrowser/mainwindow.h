@@ -8,6 +8,7 @@
 #include "qcustomgauge.h"
 
 #include "aboutelectromobility.h"
+#include "aboutteamevo.h"
 
 namespace Ui {
 class MainWindow;
@@ -32,6 +33,8 @@ private slots:
     void on_actionAbout_ElectroMobility_triggered();
 
     void on_toolBox_currentChanged(int index);
+
+    void on_actionAbout_TeamEVO_triggered();
 
 private:
     Ui::MainWindow *ui;
