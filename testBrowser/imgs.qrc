@@ -9,5 +9,11 @@
         <file>imgs/electro-mobility-logo.gif</file>
         <file>imgs/logo_evo.png</file>
         <file>imgs/teamEVO.png</file>
+        <file>imgs/Arrow-Down.png</file>
+        <file>imgs/Arrow-Up.png</file>
+        <file>imgs/left.png</file>
+        <file>imgs/right.png</file>
+        <file>imgs/connect.png</file>
+        <file>imgs/disconnect_icon.jpg</file>
     </qresource>
 </RCC>

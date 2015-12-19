@@ -32,12 +32,18 @@
      <height>121</height>
     </rect>
    </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <property name="text">
     <string>&lt;p&gt;Echipa este formata din:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt; &lt;b&gt;E&lt;/b&gt;duard - Sebastian Soltuzu&lt;/li&gt;
 &lt;li&gt; &lt;b&gt;V&lt;/b&gt;asile Cioclu&lt;/li&gt;
-&lt;li&gt; &lt;b&gt;O&lt;/b&gt;ctavian Mirtz&lt;/li&gt;
+&lt;li&gt; &lt;b&gt;O&lt;/b&gt;ctavian Mirti&lt;/li&gt;
 &lt;/ul&gt;</string>
    </property>
   </widget>

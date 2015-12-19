@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "qcgaugewidget.h"
 #include <QDebug>
+#include <QMessageBox>
 
 #include "qcustomgauge.h"
 
@@ -22,9 +23,6 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-protected:
-    void createGauge(QcGaugeWidget* qGauge, QcNeedleItem** qNeedle);
-
 private slots:
     void on_dial_valueChanged(int value);
 
@@ -36,20 +34,21 @@ private slots:
 
     void on_actionAbout_TeamEVO_triggered();
 
+    void on_pushButton_TestDirection_clicked();
+
+    void on_pushButton_TestMotor_clicked();
+
+    void on_dial_Battery_valueChanged(int value);
+
+    void on_dial_Speed_valueChanged(int value);
+
 private:
     Ui::MainWindow *ui;
 
-    QcGaugeWidget* gauge;
     QcNeedleItem* needle;
     QcNeedleItem* needle1;
     QcNeedleItem* needle2;
-    QcColorBand* colBand;
-   /* QcDegreesItem* degrees;
-    QcDegreesItem* primaryDegrees;
-    QcDegreesItem* secondDegrees;
-    QcDegreesItem* subSecondDegrees;
-    QcValuesItem* values;
-    QcValuesItem* secondValues;*/
+
 };
 
 #endif // MAINWINDOW_H
