@@ -148,6 +148,10 @@ void qCustomGauge::createBatteryGauge(QcGaugeWidget *qGauge, QcNeedleItem **qNee
 
 
     pair.first = Qt::green;
+    pair.second = 80;
+    mBandColors.append(pair);
+
+    pair.first = Qt::darkGreen;
     pair.second = 100;
     mBandColors.append(pair);
 

@@ -7,6 +7,8 @@
 
 #include "qcustomgauge.h"
 
+#include "aboutelectromobility.h"
+
 namespace Ui {
 class MainWindow;
 }
@@ -24,6 +26,12 @@ protected:
 
 private slots:
     void on_dial_valueChanged(int value);
+
+    void on_actionQuit_triggered();
+
+    void on_actionAbout_ElectroMobility_triggered();
+
+    void on_toolBox_currentChanged(int index);
 
 private:
     Ui::MainWindow *ui;

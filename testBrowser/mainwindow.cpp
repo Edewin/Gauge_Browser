@@ -10,6 +10,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
    // createGauge(ui->gauge, &needle);
 
+
     qCustomGauge::createSpeedGauge(ui->gauge, &needle);
 
     //createGauge(ui->battery, &needle1);
@@ -98,4 +99,21 @@ void MainWindow::on_dial_valueChanged(int value)
     needle->setCurrentValue(value);
     needle1->setCurrentValue(value);
     needle2->setCurrentValue(value/2);
+}
+
+void MainWindow::on_actionQuit_triggered()
+{
+    close();
+}
+
+void MainWindow::on_actionAbout_ElectroMobility_triggered()
+{
+    AboutElectromobility infoElectroMobility;
+    infoElectroMobility.setModal(true);
+    infoElectroMobility.exec();
+}
+
+void MainWindow::on_toolBox_currentChanged(int index)
+{
+    qDebug() << index;
 }

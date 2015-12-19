@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>imgs/battery.png</file>
+        <file>imgs/another-green-start-button-md.png</file>
+        <file>imgs/How-to-stop-negative-thinking-image.png</file>
+        <file>imgs/preferences-icon.png</file>
+        <file>imgs/quit.png</file>
+        <file>imgs/continental.jpg</file>
+        <file>imgs/electro-mobility-logo.gif</file>
+        <file>imgs/logo_evo.png</file>
+    </qresource>
+</RCC>

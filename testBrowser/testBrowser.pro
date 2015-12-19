@@ -15,10 +15,19 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     qcgaugewidget.cpp \
-    qcustomgauge.cpp
+    qcustomgauge.cpp \
+    aboutteamevo.cpp \
+    aboutelectromobility.cpp
 
 HEADERS  += mainwindow.h \
     qcgaugewidget.h \
-    qcustomgauge.h
+    qcustomgauge.h \
+    aboutteamevo.h \
+    aboutelectromobility.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    aboutteamevo.ui \
+    aboutelectromobility.ui
+
+RESOURCES += \
+    imgs.qrc
