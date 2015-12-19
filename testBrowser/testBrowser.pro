@@ -17,17 +17,20 @@ SOURCES += main.cpp\
     qcgaugewidget.cpp \
     qcustomgauge.cpp \
     aboutteamevo.cpp \
-    aboutelectromobility.cpp
+    aboutelectromobility.cpp \
+    preferences.cpp
 
 HEADERS  += mainwindow.h \
     qcgaugewidget.h \
     qcustomgauge.h \
     aboutteamevo.h \
-    aboutelectromobility.h
+    aboutelectromobility.h \
+    preferences.h
 
 FORMS    += mainwindow.ui \
     aboutteamevo.ui \
-    aboutelectromobility.ui
+    aboutelectromobility.ui \
+    preferences.ui
 
 RESOURCES += \
     imgs.qrc

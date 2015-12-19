@@ -10,6 +10,7 @@
 
 #include "aboutelectromobility.h"
 #include "aboutteamevo.h"
+#include "preferences.h"
 
 namespace Ui {
 class MainWindow;
@@ -42,8 +43,12 @@ private slots:
 
     void on_dial_Speed_valueChanged(int value);
 
+    void on_actionPreferences_triggered();
+
 private:
     Ui::MainWindow *ui;
+
+    //Preferences* pref;
 
     QcNeedleItem* needle;
     QcNeedleItem* needle1;

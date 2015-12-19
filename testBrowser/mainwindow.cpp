@@ -57,7 +57,7 @@ void MainWindow::on_toolBox_currentChanged(int index)
         break;
     }
 
-    buf = "Selected mode is: " + buf;
+    buf = "Selected mode is now: " + buf;
     msg.setText(buf);
     msg.setWindowTitle("Selected mode changed");
     msg.exec();
@@ -94,4 +94,18 @@ void MainWindow::on_dial_Battery_valueChanged(int value)
 void MainWindow::on_dial_Speed_valueChanged(int value)
 {
     needle->setCurrentValue(value);
+}
+
+void MainWindow::on_actionPreferences_triggered()
+{
+ //   Preferences pref(this);
+
+    Preferences* pref = new Preferences(this);
+    if(pref->exec())
+    {
+        QString str = pref->editMe->text();
+
+        qDebug() << str;
+    }
+    delete pref;
 }
