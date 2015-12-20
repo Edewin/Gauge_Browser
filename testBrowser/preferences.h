@@ -19,7 +19,8 @@ public:
     explicit Preferences(QWidget *parent = 0);
     ~Preferences();
 
-    QLineEdit* editMe;
+    QLineEdit* getIp;
+    QLineEdit* getPort;
 
 private:
     Ui::Preferences *ui;

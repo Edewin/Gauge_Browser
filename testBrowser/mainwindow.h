@@ -5,6 +5,8 @@
 #include "qcgaugewidget.h"
 #include <QDebug>
 #include <QMessageBox>
+#include <QTimer>
+#include <QTime>
 
 #include "qcustomgauge.h"
 
@@ -25,6 +27,8 @@ public:
     ~MainWindow();
 
 private slots:
+    void update();     // timer handler
+
     void on_dial_valueChanged(int value);
 
     void on_actionQuit_triggered();
@@ -45,10 +49,21 @@ private slots:
 
     void on_actionPreferences_triggered();
 
+    void on_actionConnect_triggered();
+
+    void on_actionDisconnect_triggered();
+
+    void on_pushButton_STOP_clicked();
+
+    void on_pushButton_Start_clicked();
+
 private:
     Ui::MainWindow *ui;
 
-    //Preferences* pref;
+    QTimer* timer;
+    QTime* elapsedTime;
+
+    bool flag;
 
     QcNeedleItem* needle;
     QcNeedleItem* needle1;

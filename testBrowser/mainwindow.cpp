@@ -8,6 +8,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
 
+    timer = new QTimer(this);
+    elapsedTime = new QTime();
+
+    connect(timer, SIGNAL(timeout()), this, SLOT(update()));
+
+
     qCustomGauge::createSpeedGauge(ui->gauge, &needle);
 
 
@@ -21,6 +27,41 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::update()   // timer handler
+{
+    ui->lcdNumber_Time->display( elapsedTime->elapsed() );
+
+    if(needle->currentValue() > 99 )
+    {
+        needle->setCurrentValue( 0 );
+    }
+
+
+     needle->setCurrentValue( (needle->currentValue()) + 0.2 );
+
+     needle1->setCurrentValue( (needle1->currentValue()) - 0.1  );
+
+    flag = false;
+     if(needle2->currentValue() > 70)
+     {
+        flag = true;
+        //needle2->setCurrentValue(0);
+     }
+
+     if(flag == true)
+     {
+         needle2->setCurrentValue((needle2->currentValue()) - 50.0);
+     }
+
+     if(flag == false)
+     {
+         needle2->setCurrentValue((needle2->currentValue()) + 0.6);
+     }
+
+
+
 }
 
 void MainWindow::on_dial_valueChanged(int value)
@@ -103,9 +144,65 @@ void MainWindow::on_actionPreferences_triggered()
     Preferences* pref = new Preferences(this);
     if(pref->exec())
     {
-        QString str = pref->editMe->text();
+        QString str = pref->getIp->text() + " : " + pref->getPort->text();
 
         qDebug() << str;
+
+        ui->actionConnect->setEnabled(true);
+
+
+
     }
     delete pref;
+}
+
+void MainWindow::on_actionConnect_triggered()
+{
+    ui->pushButton_Start->setEnabled(true);
+    ui->actionConnect->setEnabled(false);
+    ui->actionDisconnect->setEnabled(true);
+
+    QMessageBox msg;
+    msg.setText("<b><c>Connected</c></b>  ");
+    msg.setWindowTitle("Conection Status...   ");
+    msg.exec();
+
+    needle1->setCurrentValue(100);  // baterry level
+}
+
+void MainWindow::on_actionDisconnect_triggered()
+{
+    ui->actionDisconnect->setEnabled(false);
+    ui->actionConnect->setEnabled(true);
+    ui->pushButton_Start->setEnabled(false);
+
+    needle1->setCurrentValue(0);    // baterry level
+}
+
+void MainWindow::on_pushButton_STOP_clicked()
+{
+    ui->pushButton_Start->setEnabled(true);
+    ui->pushButton_STOP->setEnabled(false);
+
+    timer->stop();
+    elapsedTime->restart();
+
+    needle->setCurrentValue(0);
+    needle1->setCurrentValue(0);
+    needle2->setCurrentValue(0);
+
+    ui->label_WheelStatus->setText("Stopped");
+}
+
+void MainWindow::on_pushButton_Start_clicked()
+{
+    ui->pushButton_Start->setEnabled(false);
+    ui->pushButton_STOP->setEnabled(true);
+
+    needle1->setCurrentValue(100);  // baterry level
+
+    timer->start(10);
+    elapsedTime->start();
+
+    ui->label_WheelStatus->setText("Forward");
 }

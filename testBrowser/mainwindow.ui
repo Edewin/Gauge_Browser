@@ -36,7 +36,7 @@
        </font>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="page">
        <property name="geometry">
@@ -53,6 +53,9 @@
        <layout class="QHBoxLayout" name="horizontalLayout_6">
         <item>
          <widget class="QPushButton" name="pushButton_Start">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="font">
            <font>
             <pointsize>20</pointsize>
@@ -80,6 +83,9 @@
         </item>
         <item>
          <widget class="QPushButton" name="pushButton_STOP">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="font">
            <font>
             <pointsize>20</pointsize>
@@ -361,7 +367,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="label_7">
+           <widget class="QLabel" name="label_WheelStatus">
             <property name="font">
              <font>
               <pointsize>16</pointsize>
@@ -413,7 +419,7 @@ color: rgb(124, 20, 20);</string>
            </widget>
           </item>
           <item>
-           <widget class="QLCDNumber" name="lcdNumber_2">
+           <widget class="QLCDNumber" name="lcdNumber_Time">
             <property name="minimumSize">
              <size>
               <width>0</width>
@@ -568,15 +574,21 @@ color: rgb(124, 20, 20);</string>
    </property>
   </action>
   <action name="actionConnect">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset resource="imgs.qrc">
      <normaloff>:/images/imgs/connect.png</normaloff>:/images/imgs/connect.png</iconset>
    </property>
    <property name="text">
-    <string>Connect to Robot</string>
+    <string>Connect to Server</string>
    </property>
    <property name="toolTip">
-    <string>Connect</string>
+    <string>Connect to Server</string>
+   </property>
+   <property name="shortcut">
+    <string>K</string>
    </property>
   </action>
   <action name="actionDisconnect">
@@ -593,6 +605,9 @@ color: rgb(124, 20, 20);</string>
    <property name="toolTip">
     <string>Disconnect</string>
    </property>
+   <property name="shortcut">
+    <string>L</string>
+   </property>
   </action>
   <action name="actionPreferences">
    <property name="icon">
@@ -601,6 +616,9 @@ color: rgb(124, 20, 20);</string>
    </property>
    <property name="text">
     <string>Preferences</string>
+   </property>
+   <property name="shortcut">
+    <string>P</string>
    </property>
   </action>
   <action name="actionAbout_ElectroMobility">

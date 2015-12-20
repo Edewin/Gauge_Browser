@@ -7,11 +7,14 @@ Preferences::Preferences(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    editMe = new QLineEdit(this);
+    getIp = new QLineEdit(this);
+    getPort = new QLineEdit(this);
 
-    editMe->setVisible(false);  // show only the ui->lineEdit
+    getIp->setVisible(false);  // show only the ui->lineEdit
+    getPort->setVisible(false);
 
-    connect(ui->lineEdit, SIGNAL(textChanged(QString)), editMe, SLOT(setText(QString)));
+    connect(ui->lineEdit, SIGNAL(textChanged(QString)), getIp, SLOT(setText(QString)));
+    connect(ui->lineEdit_Port, SIGNAL(textChanged(QString)), getPort, SLOT(setText(QString)));
 }
 
 Preferences::~Preferences()
