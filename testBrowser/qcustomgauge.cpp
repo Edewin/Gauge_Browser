@@ -89,6 +89,10 @@ void qCustomGauge::createRPMgauge(QcGaugeWidget *qGauge, QcNeedleItem **qNeedle)
     bkg2->addColor(0.5, 0x58ACFA);
     bkg2->addColor(0.9, 0x2EFEF7);
 
+
+    QcColorBand* color = qGauge->addColorBand(89);
+    color->setMinDegree(145);
+
     QcBackgroundItem *bkg3 = qGauge->addBackground(15);
     bkg3->clearrColors();
     bkg3->addColor(0.1,0x0B173B);
@@ -114,14 +118,27 @@ void qCustomGauge::createRPMgauge(QcGaugeWidget *qGauge, QcNeedleItem **qNeedle)
     label->setColor(Qt::white);
     label->setText("x 1000 RPM");
 
-    QcColorBand* color = qGauge->addColorBand(90);
-    color->setMinDegree(145);
 
+   /* QList<QPair<QColor,float> > mBandColors;
+    QColor tmpColor;
+    tmpColor.setAlphaF(0.1);
+    QPair<QColor,float> pair;
+
+    pair.first = Qt::red;
+    pair.second = 20;
+    mBandColors.append(pair);
+
+
+
+    color->setColors(mBandColors);
+*/
     qGauge->addArc(87)->setColor(0xA9E2F3);
 
     *qNeedle = qGauge->addNeedle(85);
 
     (*qNeedle)->setColor(Qt::white);
+
+
 }
 
 void qCustomGauge::createBatteryGauge(QcGaugeWidget *qGauge, QcNeedleItem **qNeedle)

@@ -297,7 +297,11 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="QcGaugeWidget" name="rotation" native="true"/>
+       <widget class="QcGaugeWidget" name="rotation" native="true">
+        <property name="statusTip">
+         <string>RPM</string>
+        </property>
+       </widget>
       </item>
       <item>
        <layout class="QVBoxLayout" name="verticalLayout">
@@ -305,6 +309,9 @@
          <widget class="QcGaugeWidget" name="battery" native="true">
           <property name="toolTip">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Battery Level&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="statusTip">
+           <string>Battery level</string>
           </property>
           <property name="autoFillBackground">
            <bool>false</bool>
@@ -505,7 +512,11 @@ color: rgb(124, 20, 20);</string>
        </layout>
       </item>
       <item>
-       <widget class="QcGaugeWidget" name="gauge" native="true"/>
+       <widget class="QcGaugeWidget" name="gauge" native="true">
+        <property name="statusTip">
+         <string>Speed</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>
