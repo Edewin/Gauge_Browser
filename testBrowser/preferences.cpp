@@ -7,6 +7,12 @@ Preferences::Preferences(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    //serial port info
+        foreach (const QSerialPortInfo &info, QSerialPortInfo::availablePorts())
+        {
+            ui->comboBox->addItem(info.portName());
+        }
+
     getIp = new QLineEdit(this);
     getPort = new QLineEdit(this);
 
@@ -20,4 +26,19 @@ Preferences::Preferences(QWidget *parent) :
 Preferences::~Preferences()
 {
     delete ui;
+}
+
+void Preferences::on_comboBox_currentTextChanged(const QString &arg1)
+{
+    ui->lineEdit->setText(arg1);
+}
+
+void Preferences::on_comboBox_2_currentIndexChanged(const QString &arg1)
+{
+    ui->lineEdit_Port->setText(arg1);
+}
+
+void Preferences::on_comboBox_activated(const QString &arg1)
+{
+//
 }

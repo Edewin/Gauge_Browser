@@ -7,6 +7,10 @@
 #include <QMessageBox>
 #include <QTimer>
 #include <QTime>
+#include <QSerialPort>
+#include <QSerialPortInfo>
+#include <SFML/Window.hpp>
+
 
 #include "qcustomgauge.h"
 
@@ -60,14 +64,19 @@ private slots:
 private:
     Ui::MainWindow *ui;
 
-    QTimer* timer;
-    QTime* elapsedTime;
+    QTimer *timer;
+    QTime *elapsedTime;
+
+    QString SerialPort;
+    QString SerialBaudRate;
+
+    QSerialPort *serial;
 
     bool flag;
 
-    QcNeedleItem* needle;
-    QcNeedleItem* needle1;
-    QcNeedleItem* needle2;
+    QcNeedleItem *needle;
+    QcNeedleItem *needle1;
+    QcNeedleItem *needle2;
 
 };
 

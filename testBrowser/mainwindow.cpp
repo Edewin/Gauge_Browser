@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -10,6 +12,12 @@ MainWindow::MainWindow(QWidget *parent) :
 
     timer = new QTimer(this);
     elapsedTime = new QTime();
+
+    /*************Serial Port***************/
+
+    serial = new QSerialPort(this);
+
+    /**************************************/
 
     connect(timer, SIGNAL(timeout()), this, SLOT(update()));
 
@@ -21,11 +29,14 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     qCustomGauge::createRPMgauge(ui->rotation, &needle2);
-
 }
 
 MainWindow::~MainWindow()
 {
+    if(serial->isOpen())
+    {
+        serial->close();
+    }
     delete ui;
 }
 
@@ -59,9 +70,6 @@ void MainWindow::update()   // timer handler
      {
          needle2->setCurrentValue((needle2->currentValue()) + 0.6);
      }
-
-
-
 }
 
 void MainWindow::on_dial_valueChanged(int value)
@@ -141,37 +149,67 @@ void MainWindow::on_actionPreferences_triggered()
 {
  //   Preferences pref(this);
 
-    Preferences* pref = new Preferences(this);
+    Preferences *pref = new Preferences(this);
     if(pref->exec())
     {
-        QString str = pref->getIp->text() + " : " + pref->getPort->text();
+        SerialPort = pref->getIp->text();
+        SerialBaudRate = pref->getPort->text();
 
+        QString str = pref->getIp->text() + " : " + pref->getPort->text();
         qDebug() << str;
 
         ui->actionConnect->setEnabled(true);
-
-
-
     }
     delete pref;
 }
 
 void MainWindow::on_actionConnect_triggered()
 {
-    ui->pushButton_Start->setEnabled(true);
-    ui->actionConnect->setEnabled(false);
-    ui->actionDisconnect->setEnabled(true);
+    serial->setPortName(SerialPort);
 
-    QMessageBox msg;
-    msg.setText("<b><c>Connected</c></b>  ");
-    msg.setWindowTitle("Conection Status...   ");
-    msg.exec();
+    if(SerialBaudRate == "115200")
+    {
+        serial->setBaudRate(QSerialPort::Baud115200);
+        qDebug()<< "115200 baudrate";
+    }
+    else
+    {
+        serial->setBaudRate(QSerialPort::Baud9600);
+        qDebug()<< "9600 baudrate";
+    }
+
+    serial->open(QSerialPort::ReadWrite);
+
+    if(serial->isOpen())
+    {
+        ui->pushButton_Start->setEnabled(true);
+        ui->actionConnect->setEnabled(false);
+        ui->actionDisconnect->setEnabled(true);
+
+        QMessageBox msg;
+        msg.setText("<b><c>Connected</c></b>  ");
+        msg.setWindowTitle("Conection Status...   ");
+        msg.exec();
+    }
+    else
+    {
+        QMessageBox msg;
+        msg.setText("<b><c>Cannot Connect...Try again...</c></b>  ");
+        msg.setWindowTitle("Conection Status...   ");
+        msg.exec();
+    }
+
 
     needle1->setCurrentValue(100);  // baterry level
 }
 
 void MainWindow::on_actionDisconnect_triggered()
 {
+    if(serial->isOpen())
+    {
+        serial->close();
+        qDebug()<<"serial closed...";
+    }
     ui->actionDisconnect->setEnabled(false);
     ui->actionConnect->setEnabled(true);
     ui->pushButton_Start->setEnabled(false);
